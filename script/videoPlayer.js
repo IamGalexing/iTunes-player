@@ -10,6 +10,15 @@ export const videoPlayerInit = () => {
 
   videoFullscreen.addEventListener("click", () => {
     videoPlayer.requestFullscreen();
+    videoPlayer.controls = true;
+  });
+
+  videoPlayer.addEventListener("fullscreenchange", () => {
+    if (document.fullscreen) {
+      videoPlayer.controls = true;
+    } else {
+      videoPlayer.controls = false;
+    }
   });
 
   const toggleIcon = () => {
