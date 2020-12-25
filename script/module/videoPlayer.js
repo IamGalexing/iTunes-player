@@ -94,4 +94,9 @@ export const videoPlayerInit = () => {
   });
 
   changeValue();
+
+  videoPlayerInit.stop = () => {
+    videoPlayer.pause();
+    toggleIcon();
+  };
 };

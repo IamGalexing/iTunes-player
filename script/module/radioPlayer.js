@@ -59,9 +59,19 @@ export const radioPlayerInit = () => {
 
   radioVolume.addEventListener("input", () => {
     audio.volume = radioVolume.value / 100;
+    audio.muted = false;
   });
 
-  radioVolume.value = audio.value * 10 0;
+  radioMute.addEventListener("click", () => {
+    audio.muted = !audio.muted;
+  });
+
+  radioVolume.value = audio.volume * 100;
+
+  radioPlayerInit.stop = () => {
+    audio.pause();
+    changeIconPlay();
+  };
 
   console.log("Radio init.");
 };
